@@ -160,9 +160,14 @@ export async function createProjectFromTemplate(
 					increment: 60,
 					message: '📦 Installing dependencies...',
 				});
-				await execAsync(template['post-install'], {
-					cwd: fullProjectPath,
-				});
+
+				try {
+					if (template['post-install']) {
+						await execAsync(template['post-install'], {
+							cwd: fullProjectPath,
+						});
+					}
+				} catch {}
 
 				progress.report({
 					increment: 100,

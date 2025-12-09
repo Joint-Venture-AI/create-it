@@ -2,7 +2,7 @@
   "name": "create-it",
   "displayName": "Create It - Project Template Manager",
   "description": "Create projects from awesome templates with interactive UI",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "jvai",
   "engines": {
     "vscode": "^1.85.0"
