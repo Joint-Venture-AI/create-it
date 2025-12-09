@@ -1,0 +1,61 @@
+name: Build and Release Extension
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check types
+        run: npm run check-types
+
+      - name: Package extension
+        run: npm run package
+
+      - name: Rename extension file
+        run: |
+          mv create-it-*.vsix create-it.vsix
+
+      - name: Get extension filename
+        id: extension
+        run: |
+          echo "filename=create-it.vsix" >> $GITHUB_OUTPUT
+          echo "Extension packaged: create-it.vsix"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ steps.extension.outputs.filename }}
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
+          body: |
+            ## Extension Build
+            **Commit**: ${{ github.sha }}
+            **Branch**: main
+
+            ### Installation
+            Download `create-it.vsix` and install via VS Code Extensions or use:
+            ```
+            code --install-extension create-it.vsix
+            ```
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

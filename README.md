@@ -15,6 +15,12 @@ Create projects from awesome templates with interactive UI
 
 ## Installation
 
+> [download_vsix](https://github.com/Joint-Venture-AI/create-it/releases/latest/download/create-it.vsix) 👈
+
+> code --install-extension create-it.vsix
+
+Or install directly from the Visual Studio Code Marketplace:
+
 1. Open Visual Studio Code.
 2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or by pressing `Ctrl+Shift+X`.
 3. Search for "Create It - Project Template Manager".
