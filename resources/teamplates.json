@@ -14,18 +14,6 @@
     }
   },
   "node": {
-    "express-starter": {
-      "description": "Fast, unopinionated, minimalist web framework for Node.js",
-      "homepage": "https://expressjs.com/",
-      "authors": [
-        {
-          "name": "Express Team",
-          "url": "https://expressjs.com/"
-        }
-      ],
-      "git-repository": "https://github.com/expressjs/express.git",
-      "post-install": "npm install"
-    },
     "express-it": {
       "description": "A modern, batteries-included Express.js boilerplate to kickstart your Node.js backend with best practices.",
       "homepage": "https://github.com/shaishab316/express-it",
@@ -36,20 +24,6 @@
         }
       ],
       "git-repository": "https://github.com/shaishab316/express-it.git",
-      "post-install": "npm install"
-    }
-  },
-  "react": {
-    "vite-template": {
-      "description": "React + TypeScript + Vite starter template",
-      "homepage": "https://vitejs.dev/",
-      "authors": [
-        {
-          "name": "Vite Team",
-          "url": "https://vitejs.dev/"
-        }
-      ],
-      "git-repository": "https://github.com/vitejs/vite.git",
       "post-install": "npm install"
     }
   }
