@@ -3,7 +3,7 @@
   "displayName": "Project Template Manager",
   "description": "Create projects from awesome templates with interactive UI",
   "version": "1.0.0",
-  "publisher": "your-publisher-name",
+  "publisher": "jvai",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -19,12 +19,28 @@
     "generator"
   ],
   "activationEvents": [
-    "onCommand:create-it.createProject",
-    "onCommand:create-it.openConfig",
-    "onCommand:create-it.reloadTemplates"
+    "onView:create-it-sidebar"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "create-it-container",
+          "title": "Create It",
+          "icon": "$(rocket)"
+        }
+      ]
+    },
+    "views": {
+      "create-it-container": [
+        {
+          "id": "create-it-sidebar",
+          "name": "Template Manager",
+          "type": "webview"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "create-it.createProject",

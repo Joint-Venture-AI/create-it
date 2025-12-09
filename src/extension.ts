@@ -4,6 +4,7 @@ import * as fs from 'fs';
 import * as os from 'os';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { SidebarProvider } from './SidebarProvider';
 
 const execAsync = promisify(exec);
 
@@ -34,6 +35,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Initialize config directory and templates file
 	initializeConfig(context);
+
+	// Register sidebar provider
+	const sidebarProvider = new SidebarProvider(context.extensionUri);
+	context.subscriptions.push(
+		vscode.window.registerWebviewViewProvider(
+			'create-it-sidebar',
+			sidebarProvider
+		)
+	);
 
 	const createProjectDisposable = vscode.commands.registerCommand(
 		'create-it.createProject',
