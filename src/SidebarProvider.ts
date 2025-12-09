@@ -18,19 +18,20 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 			localResourceRoots: [this._extensionUri],
 		};
 
-		let html = 'Loading sidebar content...';
+		webviewView.webview.html = 'Loading sidebar...';
 		try {
 			const response = await fetch(config.sidebarUrl);
 			if (response.ok) {
-				html = await response.text();
+				const html = await response.text();
+				webviewView.webview.html = html;
 			} else {
-				html = `Failed to load sidebar content: ${response.statusText}`;
+				throw new Error(
+					`Failed to load sidebar content: ${response.statusText}`
+				);
 			}
 		} catch (error) {
-			html = `Error loading sidebar content: ${error}`;
+			webviewView.webview.html = `Error loading sidebar content: ${error}`;
 		}
-
-		webviewView.webview.html = html;
 
 		webviewView.webview.onDidReceiveMessage(async (data) => {
 			switch (data.type) {
