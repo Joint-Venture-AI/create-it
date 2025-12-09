@@ -25,6 +25,18 @@
       ],
       "git-repository": "https://github.com/shaishab316/express-it.git",
       "post-install": "npm install"
+    },
+    "starter-backend": {
+      "description": "A starter backend template for Node.js projects.",
+      "homepage": "https://github.com/AbdulSatterism/starter-backend",
+      "authors": [
+        {
+          "name": "Abdul Satter",
+          "url": "https://github.com/AbdulSatterism"
+        }
+      ],
+      "git-repository": "https://github.com/AbdulSatterism/starter-backend.git",
+      "post-install": "npm install"
     }
   }
 }
