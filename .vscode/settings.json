@@ -1,0 +1,40 @@
+{
+	"files.exclude": {
+		"**/.git": false,
+		"**/.svn": false,
+		"**/.hg": false,
+		"**/.DS_Store": false,
+		"**/Thumbs.db": false,
+		".eslint*": false,
+		".prettie*": false,
+		".vscode": false,
+		"*.bat": false,
+		"*config*": false,
+		"*example*": false,
+		"*ignore*": false,
+		"*lock*": false,
+		"*node*": false,
+		"*uploads*": false,
+		"*winston*": false,
+		"dist": false
+	},
+	"explorerExclude.backup": {
+		"**/.git": false,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		".eslint*": true,
+		".prettie*": true,
+		".vscode": true,
+		"*.bat": true,
+		"*config*": true,
+		"*example*": true,
+		"*ignore*": true,
+		"*lock*": true,
+		"*node*": true,
+		"*uploads*": true,
+		"*winston*": true,
+		"dist": true
+	}
+}

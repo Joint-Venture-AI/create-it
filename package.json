@@ -1,0 +1,100 @@
+{
+  "name": "create-it",
+  "displayName": "Project Template Manager",
+  "description": "Create projects from awesome templates with interactive UI",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
+  "keywords": [
+    "template",
+    "project",
+    "boilerplate",
+    "starter",
+    "generator"
+  ],
+  "activationEvents": [
+    "onCommand:create-it.createProject",
+    "onCommand:create-it.openConfig",
+    "onCommand:create-it.reloadTemplates"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "create-it.createProject",
+        "title": "Create Project from Template",
+        "category": "Create It",
+        "icon": "$(new-folder)"
+      },
+      {
+        "command": "create-it.openConfig",
+        "title": "Open Templates Configuration",
+        "category": "Create It",
+        "icon": "$(settings-gear)"
+      },
+      {
+        "command": "create-it.reloadTemplates",
+        "title": "Reload Templates",
+        "category": "Create It",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "create-it.createProject"
+        },
+        {
+          "command": "create-it.openConfig"
+        },
+        {
+          "command": "create-it.reloadTemplates"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Project Template Manager",
+      "properties": {
+        "projectTemplateManager.defaultPath": {
+          "type": "string",
+          "default": "",
+          "description": "Default path for creating new projects"
+        },
+        "projectTemplateManager.customTemplates": {
+          "type": "string",
+          "default": "",
+          "description": "Path to custom templates JSON file"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/create-it"
+  },
+  "icon": "public/logo.png"
+}
