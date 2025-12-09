@@ -1,10 +1,8 @@
-import * as vscode from 'vscode';
-import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
-
-const CONFIG_DIR = path.join(os.homedir(), '.create-it');
-const TEMPLATES_FILE = path.join(CONFIG_DIR, 'templates.json');
+import vscode from 'vscode';
+import fs from 'fs';
+import os from 'os';
+import { config } from '@/config';
+const { templatesFile } = config;
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
 	_view?: vscode.WebviewView;
@@ -70,13 +68,13 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 		this._view?.webview.postMessage({
 			type: 'settings',
 			defaultPath: defaultPath,
-			templatesPath: TEMPLATES_FILE,
+			templatesPath: templatesFile,
 		});
 	}
 
 	private async sendTemplates() {
 		try {
-			const content = fs.readFileSync(TEMPLATES_FILE, 'utf8');
+			const content = fs.readFileSync(templatesFile, 'utf8');
 			const templates = JSON.parse(content);
 
 			this._view?.webview.postMessage({
@@ -118,7 +116,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 			JSON.parse(templatesJson);
 
 			// Save to file
-			fs.writeFileSync(TEMPLATES_FILE, templatesJson);
+			fs.writeFileSync(templatesFile, templatesJson);
 			vscode.window.showInformationMessage('✅ Templates saved successfully!');
 			this.sendTemplates();
 		} catch (error) {
@@ -127,7 +125,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 	}
 
 	private async openTemplatesFile() {
-		const uri = vscode.Uri.file(TEMPLATES_FILE);
+		const uri = vscode.Uri.file(templatesFile);
 		const document = await vscode.workspace.openTextDocument(uri);
 		await vscode.window.showTextDocument(document);
 	}
@@ -164,7 +162,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 		if (!postInstall) return;
 
 		// Read current templates
-		const content = fs.readFileSync(TEMPLATES_FILE, 'utf8');
+		const content = fs.readFileSync(templatesFile, 'utf8');
 		const templates = JSON.parse(content);
 
 		// Add new template
@@ -181,7 +179,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 		};
 
 		// Save
-		fs.writeFileSync(TEMPLATES_FILE, JSON.stringify(templates, null, 2));
+		fs.writeFileSync(templatesFile, JSON.stringify(templates, null, 2));
 		vscode.window.showInformationMessage(
 			`✅ Template "${name}" added to "${category}"!`
 		);

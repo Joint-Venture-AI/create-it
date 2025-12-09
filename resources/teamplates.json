@@ -1,0 +1,56 @@
+{
+  "flutter": {
+    "basic-app": {
+      "description": "A UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.",
+      "homepage": "https://github.com/palash-barman/flutter_extension",
+      "authors": [
+        {
+          "name": "Palash Chandra Barman",
+          "url": "https://github.com/palash-barman"
+        }
+      ],
+      "git-repository": "https://github.com/palash-barman/flutter_extension.git",
+      "post-install": "flutter pub get"
+    }
+  },
+  "node": {
+    "express-starter": {
+      "description": "Fast, unopinionated, minimalist web framework for Node.js",
+      "homepage": "https://expressjs.com/",
+      "authors": [
+        {
+          "name": "Express Team",
+          "url": "https://expressjs.com/"
+        }
+      ],
+      "git-repository": "https://github.com/expressjs/express.git",
+      "post-install": "npm install"
+    },
+    "express-it": {
+      "description": "A modern, batteries-included Express.js boilerplate to kickstart your Node.js backend with best practices.",
+      "homepage": "https://github.com/shaishab316/express-it",
+      "authors": [
+        {
+          "name": "Shaishab Chandra Shil",
+          "url": "https://github.com/shaishab316"
+        }
+      ],
+      "git-repository": "https://github.com/shaishab316/express-it.git",
+      "post-install": "npm install"
+    }
+  },
+  "react": {
+    "vite-template": {
+      "description": "React + TypeScript + Vite starter template",
+      "homepage": "https://vitejs.dev/",
+      "authors": [
+        {
+          "name": "Vite Team",
+          "url": "https://vitejs.dev/"
+        }
+      ],
+      "git-repository": "https://github.com/vitejs/vite.git",
+      "post-install": "npm install"
+    }
+  }
+}
