@@ -24,7 +24,7 @@
         }
       ],
       "git-repository": "https://github.com/shaishab316/express-it.git",
-      "post-install": "npm install"
+      "post-install": "npm install --ignore-scripts"
     },
     "starter-backend": {
       "description": "A starter backend template for Node.js projects.",
